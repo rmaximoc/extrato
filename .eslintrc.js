@@ -62,13 +62,6 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-quotes': ['error', 'prefer-double'],
     'no-param-reassign': 0,
-    'react/forbid-prop-types': 1,
-    'react/no-unused-prop-types': [
-      1,
-      {
-        skipShapeProps: true
-      }
-    ],
     'react/function-component-definition': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'jsx-a11y/no-redundant-roles': 0,
@@ -97,7 +90,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/react-in-jsx-scope': 0,
     'react/jsx-filename-extension': 0,
-    'react/prop-types': 2,
+    'react/require-default-props': 0,
     'spaced-comment': 0,
     semi: [2, 'never'],
     'import/no-anonymous-default-export': ['error', {
