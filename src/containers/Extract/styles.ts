@@ -14,7 +14,7 @@ export const Wrapper = styled('div')<WrapperProps>`
 
 export const ExtractHeader = styled.div`
   display: grid;
-  grid-template-columns: 1.5fr 2fr 2fr 1fr;
+  grid-template-columns: 1.8fr 2fr 2fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-template-areas:

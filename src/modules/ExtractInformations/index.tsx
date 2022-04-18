@@ -25,7 +25,11 @@ const ExtractInformations = ({ data }: ExtractInformationsProps) => (
             {formatPTBRDate({ date: data.results[index + 1]?.date })}
           </TransactionsDay>
           <DayAmount>
-            {`saldo do dia ${formatMoney(content?.amountTotal)}`}
+            saldo do dia
+            {' '}
+            <b>
+              {formatMoney(content?.amountTotal)}
+            </b>
           </DayAmount>
         </DataWrapper>
       </>

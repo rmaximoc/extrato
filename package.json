@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^6.2.1",
     "@types/vanilla-masker": "^1.2.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-react": "^7.28.0",

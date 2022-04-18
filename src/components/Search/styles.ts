@@ -15,4 +15,5 @@ export const Wrapper = styled('div')<SearchProps>`
 
 export const Input = styled.input`
   width: 100%;
+  padding-left: 20px;
 `

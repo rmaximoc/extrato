@@ -24,7 +24,8 @@ export default function extract(
               type: 'BANKSLIP',
               entry: 'CREDIT',
               scheduled: false,
-              dateEvent: '2021-01-06T21:00:00Z'
+              dateEvent: '2021-01-06T21:00:00Z',
+              icon: 'income'
             }
           ]
         },
@@ -40,7 +41,8 @@ export default function extract(
               type: 'EXTERNAL',
               entry: 'DEBIT',
               scheduled: false,
-              dateEvent: '2021-01-15T00:00:00Z'
+              dateEvent: '2021-01-15T00:00:00Z',
+              icon: 'outcome'
             }
           ]
         },
@@ -56,7 +58,8 @@ export default function extract(
               type: 'INTERNAL',
               entry: 'DEBIT',
               scheduled: false,
-              dateEvent: '2021-01-17T00:00:00Z'
+              dateEvent: '2021-01-17T00:00:00Z',
+              icon: 'outcome'
             },
             {
               status: 'COMPLETED',
@@ -66,7 +69,8 @@ export default function extract(
               type: 'INTERNAL',
               entry: 'DEBIT',
               scheduled: false,
-              dateEvent: '2020-01-17T00:00:00Z'
+              dateEvent: '2020-01-17T00:00:00Z',
+              icon: 'outcome'
             },
             {
               status: 'REFUNDED',
@@ -76,7 +80,8 @@ export default function extract(
               type: 'INTERNAL',
               entry: 'CREDIT',
               scheduled: false,
-              dateEvent: '2020-01-17T00:00:00Z'
+              dateEvent: '2020-01-17T00:00:00Z',
+              icon: 'income'
             },
             {
               status: 'COMPLETED',
@@ -86,7 +91,8 @@ export default function extract(
               type: 'BANKSLIP',
               entry: 'CREDIT',
               scheduled: false,
-              dateEvent: '2020-01-17T21:00:00Z'
+              dateEvent: '2020-01-17T21:00:00Z',
+              icon: 'income'
             }
           ]
         },
@@ -102,7 +108,8 @@ export default function extract(
               type: 'EXTERNAL',
               entry: 'DEBIT',
               scheduled: false,
-              dateEvent: '2020-04-20T00:00:00Z'
+              dateEvent: '2020-04-20T00:00:00Z',
+              icon: 'outcome'
             },
             {
               status: 'COMPLETED',
@@ -112,7 +119,8 @@ export default function extract(
               type: 'BANKSLIP',
               entry: 'CREDIT',
               scheduled: false,
-              dateEvent: '2020-04-20T21:00:00Z'
+              dateEvent: '2020-04-20T21:00:00Z',
+              icon: 'income'
             }
           ]
         },
@@ -128,7 +136,8 @@ export default function extract(
               type: 'INTERNAL',
               entry: 'DEBIT',
               scheduled: false,
-              dateEvent: '2020-04-24T00:00:00Z'
+              dateEvent: '2020-04-24T00:00:00Z',
+              icon: 'outcome'
             },
             {
               status: 'REFUNDED',
@@ -138,7 +147,8 @@ export default function extract(
               type: 'EXTERNAL',
               entry: 'CREDIT',
               scheduled: false,
-              dateEvent: '2020-04-24T00:00:00Z'
+              dateEvent: '2020-04-24T00:00:00Z',
+              icon: 'income'
             }
           ]
         },
@@ -154,7 +164,8 @@ export default function extract(
               type: 'INTERNAL',
               entry: 'DEBIT',
               dateEvent: '2020-01-28T00:00:00Z',
-              scheduled: true
+              scheduled: true,
+              icon: 'schedulle'
             },
             {
               status: 'PENDING',
@@ -164,7 +175,8 @@ export default function extract(
               type: 'INTERNAL',
               entry: 'DEBIT',
               dateEvent: '2020-01-28T00:00:00Z',
-              scheduled: true
+              scheduled: true,
+              icon: 'schedulle'
             }
           ]
         },
@@ -180,7 +192,8 @@ export default function extract(
               type: 'INTERNAL',
               entry: 'DEBIT',
               dateEvent: '2020-01-30T00:00:00Z',
-              scheduled: true
+              scheduled: true,
+              icon: 'schedulle'
             }
           ]
         }

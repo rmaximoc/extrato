@@ -9,7 +9,7 @@ import { formatExtractDate } from 'src/helpers/formatDate'
 import { formatMoney } from 'src/helpers/formatMoney'
 import { transactionType } from 'src/helpers/transactionType'
 
-import { Wrapper, DataWrapper } from './styles'
+import { Wrapper, DataWrapper, TransactionTypeParagraph, DateParagraph } from './styles'
 
 interface ExtractItemsProps {
   data: any
@@ -37,10 +37,12 @@ const ExtractItems = ({ data }: ExtractItemsProps) => {
     <Wrapper>
       {data.map((item: any) => (
         <DataWrapper key={item.dateEvent}>
-          <Icon icon="search" />
+          <Icon width={32} height={32} icon={item.icon} />
           <Paragraph>{item.actor}</Paragraph>
-          <Paragraph>{transactionType({ status: item.status, entry: item.entry, source: item.source })}</Paragraph>
-          <Paragraph>{formatExtractDate({ date: item.dateEvent })}</Paragraph>
+          <TransactionTypeParagraph>
+            {transactionType({ status: item.status, entry: item.entry, source: item.source })}
+          </TransactionTypeParagraph>
+          <DateParagraph>{formatExtractDate({ date: item.dateEvent })}</DateParagraph>
           <ColoredMoneyValue
             transactionStatus={item.status}
             transactionEntry={item.entry}
