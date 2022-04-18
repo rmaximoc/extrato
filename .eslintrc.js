@@ -65,7 +65,7 @@ module.exports = {
     'react/function-component-definition': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
     'jsx-a11y/no-redundant-roles': 0,
-    'max-len': ['error', 100, { ignoreUrls: true }],
+    'max-len': ['error', 130, { ignoreUrls: true }],
     'no-multiple-empty-lines': ['error', { max: 2, maxBOF: 1 }],
     'no-trailing-spaces': ['error', { skipBlankLines: false, ignoreComments: true }],
     'no-confusing-arrow': 0,

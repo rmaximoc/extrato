@@ -335,6 +335,11 @@
     "@types/react" "*"
     csstype "^3.0.2"
 
+"@types/vanilla-masker@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@types/vanilla-masker/-/vanilla-masker-1.2.1.tgz#5eb024a7ee9d5e9e2caf7e61cb07c37a80c74445"
+  integrity sha512-b5ajZhEff5Ymf0znJ6ReHd4RIzZxb8QORD52/gC9qiG1wgBG+uraJbOgIXIyn4/OLOko/bmDajXuxn2WnYD3ew==
+
 "@typescript-eslint/eslint-plugin@^5.19.0":
   version "5.19.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.19.0.tgz#9608a4b6d0427104bccf132f058cba629a6553c0"
@@ -2078,6 +2083,11 @@ v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
+
+vanilla-masker@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vanilla-masker/-/vanilla-masker-1.2.0.tgz#c2830e9d994a5fecd2261506477c2707fe589756"
+  integrity sha1-woMOnZlKX+zSJhUGR3wnB/5Yl1Y=
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
