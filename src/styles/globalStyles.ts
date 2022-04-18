@@ -66,7 +66,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-family: Inter, sans-serif;
+    font-family: Avenir, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 100%;
