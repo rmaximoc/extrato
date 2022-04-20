@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface StyledParagraphProps {
-  textAlign: string
+  textAlign: string;
 }
 
 export const StyledParagraph = styled.p`

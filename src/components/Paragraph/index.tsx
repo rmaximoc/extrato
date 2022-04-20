@@ -3,7 +3,7 @@ import React from 'react'
 import { StyledParagraph } from './styles'
 
 interface ParagraphProps {
-  children: React.ReactChild | React.ReactChild[];
+  children: React.ReactNode;
   className?: string;
   textAlign?: 'center' | 'end' | 'left' | 'unset';
 }

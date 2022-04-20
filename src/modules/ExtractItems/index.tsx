@@ -5,6 +5,7 @@ import { Icon } from '@components/Icon'
 import { Paragraph } from '@components/Paragraph'
 import { CREDIT, DEBIT } from '@utils/TransactionEntry'
 import { REFUNDED } from '@utils/TransactionStatus'
+import * as transactionTypes from '@utils/TransactionTypeTranslate'
 import { formatExtractDate } from 'src/helpers/formatDate'
 import { formatMoney } from 'src/helpers/formatMoney'
 import { transactionType } from 'src/helpers/transactionType'
@@ -33,14 +34,20 @@ const ExtractItems = ({ data }: ExtractItemsProps) => {
     }
   }
 
+  const transactionTypeIconTranslate = item => {
+    const icon = transactionType({ status: item.status, entry: item.entry, source: item.source })?.transactionType.toUpperCase()
+
+    return transactionTypes[icon]
+  }
+
   return (
     <Wrapper>
-      {data.map((item: any) => (
+      {data?.map((item: any) => (
         <DataWrapper key={item.dateEvent}>
-          <Icon width={32} height={32} icon={item.icon} />
+          <Icon width={32} height={32} icon={transactionTypeIconTranslate(item)} />
           <Paragraph>{item.actor}</Paragraph>
           <TransactionTypeParagraph>
-            {transactionType({ status: item.status, entry: item.entry, source: item.source })}
+            {transactionType({ status: item.status, entry: item.entry, source: item.source })?.message}
           </TransactionTypeParagraph>
           <DateParagraph>{formatExtractDate({ date: item.dateEvent })}</DateParagraph>
           <ColoredMoneyValue

@@ -1,3 +1,5 @@
+import { useState, useRef } from 'react'
+
 import { Icon } from '@components/Icon'
 
 import { Wrapper, Input } from './styles'
@@ -8,14 +10,22 @@ interface SearchProps {
   fill?: boolean
 }
 
-const Search = ({ className, placeholder, fill }: SearchProps) => (
-  <Wrapper className={className} fill={fill}>
-    <Icon icon="search" />
-    <Input
-      autoComplete="off"
-      placeholder={placeholder}
-    />
-  </Wrapper>
-)
+const Search = ({ className, placeholder, fill }: SearchProps) => {
+  const inputRef = useRef()
+  const [inputValue, setInputValue] = useState('')
+
+  return (
+    <Wrapper className={className} fill={fill} onClick={() => inputRef.current.focus()}>
+      <Icon icon="search" />
+      <Input
+        autoComplete="off"
+        placeholder={placeholder}
+        type="search"
+        onChange={event => setInputValue(event.target.value)}
+        ref={inputRef}
+      />
+    </Wrapper>
+  )
+}
 
 export { Search }

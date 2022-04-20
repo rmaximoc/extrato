@@ -19,9 +19,12 @@
       "@components/*": ["./src/components/*"],
       "@containers/*": ["./src/containers/*"],
       "@modules/*": ["./src/modules/*"],
+      "@contexts/*": ["./src/contexts/*"],
       "@pages/*": ["./src/pages/*"],
+      "@services/*": ["./src/services/*"],
       "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"],
+      "@helpers/*": ["./src/helpers/*"],
       "@assets/*": ["./src/assets/*"]
     }
   },

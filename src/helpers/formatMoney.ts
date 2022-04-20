@@ -1,6 +1,6 @@
 import { toMoney, toNumber } from 'vanilla-masker'
 
-export const formatMoney = (entry: number) => {
+export const formatMoney = (entry = 0) => {
   const moneyFormatter = {
     precision: 2,
     separator: ',',

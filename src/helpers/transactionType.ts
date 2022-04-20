@@ -2,38 +2,65 @@ import { CREDIT, DEBIT } from '@utils/TransactionEntry'
 import { PAYMENT, TRANSFER } from '@utils/TransactionSource'
 import { COMPLETED, PENDING, REFUNDED } from '@utils/TransactionStatus'
 
-const transactionType = ({ status, source, entry }) => {
+interface TransactionTypeProps {
+  status: string;
+  source: string;
+  entry: string;
+}
+
+const transactionType = ({ status, source, entry }: TransactionTypeProps) => {
   if (status === COMPLETED) {
     if (source === PAYMENT && entry === DEBIT) {
-      return 'Pagamento Realizado'
+      return {
+        transactionType: 'Saída',
+        message: 'Pagamento Realizado'
+      }
     }
 
     if (source === TRANSFER && entry === DEBIT) {
-      return 'Transferência Realizada'
+      return {
+        transactionType: 'Saída',
+        message: 'Transferência Realizada'
+      }
     }
 
     if (source === PAYMENT && entry === CREDIT) {
-      return 'Pagamento Recebido'
+      return {
+        transactionType: 'Entrada',
+        message: 'Pagamento Recebido'
+      }
     }
   }
 
   if (status === REFUNDED) {
     if (source === TRANSFER && entry === CREDIT) {
-      return 'Pagamento Estornado'
+      return {
+        transactionType: 'Saída',
+        message: 'Pagamento Estornado'
+      }
     }
 
     if (source === TRANSFER && entry === CREDIT) {
-      return 'Trasferência Estornada'
+      return {
+        transactionType: 'Entrada',
+        message: 'Trasferência Estornada'
+      }
     }
   }
 
   if (status === PENDING) {
     if (source === PAYMENT && entry === DEBIT) {
-      return 'Pagamento Agendado'
+      return {
+        transactionType: 'Futuro',
+        message: 'Pagamento Agendado'
+      }
     }
 
     if (source === TRANSFER && entry === DEBIT) {
-      return 'Transferência Agendada'
+      return {
+        transactionType: 'Futuro',
+        message: 'Transferência Agendada'
+      }
     }
   }
 }

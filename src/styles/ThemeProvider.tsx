@@ -4,11 +4,11 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 
 import { theme } from './theme'
 
-interface Props {
+interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
-const ThemeProvider: React.FC<Props> = ({ children }) =>
+const ThemeProvider = ({ children }: ThemeProviderProps) =>
   <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
 
 

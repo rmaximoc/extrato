@@ -4,7 +4,7 @@ import { Title } from '@components/Title'
 
 import { Wrapper } from './styles'
 
-const Header: React.FC = () => (
+const Header = () => (
   <Wrapper>
     <Title>Extrato</Title>
   </Wrapper>

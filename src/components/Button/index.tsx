@@ -2,11 +2,10 @@ import React from 'react'
 
 import { StyledButton } from './styles'
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   children: string | React.ReactNode;
   className?: string;
   isActive?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = ({ children, className, isActive = false, onClick }: ButtonProps) => (
