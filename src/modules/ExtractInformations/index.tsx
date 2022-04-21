@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Paper } from '@components/Paper'
+import { ExtractResults } from 'src/@types'
 import { formatPTBRDate } from 'src/helpers/formatDate'
 import { formatMoney } from 'src/helpers/formatMoney'
 
@@ -8,12 +9,12 @@ import { ExtractItems } from '../ExtractItems'
 import { Wrapper, PaperWrapper, DayAmount, TransactionsDay, DataWrapper } from './styles'
 
 interface ExtractInformationsProps {
-  data: any
+  data: ExtractResults
 }
 
 const ExtractInformations = ({ data }: ExtractInformationsProps) => (
   <Wrapper>
-    {data?.results?.map((content: any, index: number) => (
+    {data?.results?.map((content, index) => (
       <>
         <PaperWrapper>
           <Paper>

@@ -18,56 +18,82 @@ const mapping = {
 const Extract = () => {
   const [extracts, setExtracts] = useState<ExtractResults | null>(null)
   const [filteredItems, setFilteredItems] = useState(extracts)
-  const { filter } = useContext(FilterContext)
+  const { filter, searchInputString } = useContext(FilterContext)
 
-  const extractsFiltered = () => {
+  const actionButtonsFilter = () => {
     const filterResult = extracts?.results.map(result => {
       const newArray = result.items.filter(item => {
-        if (item.scheduled === false) {
-          return item.entry === mapping[filter]
+        if (!item.scheduled && item.entry === mapping[filter]) {
+          return item.entry
         }
 
-        return item.scheduled === true
+        return item.scheduled
       })
 
-      if (newArray.length > 0) {
+      if (newArray.length) {
         return {
           ...result,
           items: newArray
         }
       }
+
+      return undefined
     })
 
-    if (filter === 'Tudo') {
-      return extracts
-    }
+    return filterResult?.filter(values => !!values)
+  }
 
-    return filterResult?.filter(values => values !== undefined)
+  const searchInputFilter = () => {
+    const searchResult = extracts?.results.map(result => {
+      const newArray = result.items.filter(item => item.actor.toLowerCase().includes(searchInputString.toLowerCase()))
+
+      if (newArray.length > 0) {
+        return {
+          items: newArray
+        }
+      }
+
+      return undefined
+    })
+
+    return searchResult?.filter(values => !!values)
   }
 
   useEffect(() => {
-    const fetchExtracts = async () => {
+    const setExtractFetchToStates = async () => {
       const data = await getExtracts()
 
       setExtracts(data)
       setFilteredItems(data)
     }
 
-    fetchExtracts()
+    setExtractFetchToStates()
   }, [])
 
   useEffect(() => {
-    const filtered = extractsFiltered()
-
-    if (filter === 'Tudo') return setFilteredItems(extracts)
+    if (filter === 'Tudo') return setFilteredItems(prevState => prevState !== extracts)
 
     const mergedFilteredItems = {
       ...extracts,
-      results: filtered
+      results: actionButtonsFilter()
     }
 
-    setFilteredItems(mergedFilteredItems)
+    console.log({ mergedFilteredItems })
+
+    return setFilteredItems(mergedFilteredItems)
   }, [filter])
+
+  useEffect(() => {
+    const newResult = {
+      results: searchInputFilter()
+    }
+
+    if (!searchInputString) {
+      return setFilteredItems(extracts)
+    }
+
+    setFilteredItems(newResult)
+  }, [searchInputString])
 
   return (
     <Wrapper>
@@ -77,7 +103,9 @@ const Extract = () => {
         <DataParagraph>Data</DataParagraph>
         <Paragraph textAlign="end">Valor</Paragraph>
       </ExtractHeader>
-      <ExtractInformations data={filteredItems} />
+      {filteredItems?.results?.length
+        ? <ExtractInformations data={filteredItems} />
+        : <Paragraph>Não foram econtrados itens</Paragraph>}
     </Wrapper>
   )
 }

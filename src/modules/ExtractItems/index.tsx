@@ -6,6 +6,7 @@ import { Paragraph } from '@components/Paragraph'
 import { CREDIT, DEBIT } from '@utils/TransactionEntry'
 import { REFUNDED } from '@utils/TransactionStatus'
 import * as transactionTypes from '@utils/TransactionTypeTranslate'
+import { ExtractItem } from 'src/@types'
 import { formatExtractDate } from 'src/helpers/formatDate'
 import { formatMoney } from 'src/helpers/formatMoney'
 import { transactionType } from 'src/helpers/transactionType'
@@ -34,7 +35,7 @@ const ExtractItems = ({ data }: ExtractItemsProps) => {
     }
   }
 
-  const transactionTypeIconTranslate = item => {
+  const transactionTypeIconTranslate = (item: ExtractItem) => {
     const icon = transactionType({ status: item.status, entry: item.entry, source: item.source })?.transactionType.toUpperCase()
 
     return transactionTypes[icon]

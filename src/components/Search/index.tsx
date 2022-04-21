@@ -1,6 +1,7 @@
-import { useState, useRef } from 'react'
+import { useRef, useContext } from 'react'
 
 import { Icon } from '@components/Icon'
+import { FilterContext } from '@contexts/filterContext'
 
 import { Wrapper, Input } from './styles'
 
@@ -12,7 +13,7 @@ interface SearchProps {
 
 const Search = ({ className, placeholder, fill }: SearchProps) => {
   const inputRef = useRef()
-  const [inputValue, setInputValue] = useState('')
+  const { setSearchInputString } = useContext(FilterContext)
 
   return (
     <Wrapper className={className} fill={fill} onClick={() => inputRef.current.focus()}>
@@ -21,8 +22,8 @@ const Search = ({ className, placeholder, fill }: SearchProps) => {
         autoComplete="off"
         placeholder={placeholder}
         type="search"
-        onChange={event => setInputValue(event.target.value)}
         ref={inputRef}
+        onChange={event => setSearchInputString(event.target.value)}
       />
     </Wrapper>
   )

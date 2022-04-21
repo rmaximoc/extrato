@@ -1,19 +1,35 @@
 export interface ExtractItem {
-  status: string;
+  status: StatusItemType;
   actor: string;
   amount: number;
-  source: string;
+  source: SourceItemType;
   type: ExtractItemType;
-  entry: string;
+  entry: EntryItemType;
   scheduled: boolean;
   dateEvent: string;
 }
 
 enum ExtractItemType {
   'BANKSLIP' = 'BANKSLIP',
-  'CREDITCARD' = 'CREDITCARD'
+  'EXTERNAL' = 'EXTERNAL',
+  'INTERNAL' = 'INTERNAL'
 }
 
+enum EntryItemType {
+  'CREDIT' = 'CREDIT',
+  'DEBIT' = 'DEBIT',
+}
+
+enum SourceItemType {
+  'TRANSFER' = 'TRANSFER',
+  'PAYMENT' = 'PAYMENT',
+}
+
+enum StatusItemType {
+  'COMPLETED' = 'COMPLETED',
+  'REFUNDED' = 'REFUNDED',
+  'PENDING' = 'PENDING'
+}
 export interface ExtractResponse {
   date: string;
   amountTotal: number;
