@@ -30,6 +30,13 @@ const transactionType = ({ status, source, entry }: TransactionTypeProps) => {
         message: 'Pagamento Recebido'
       }
     }
+
+    if (source === TRANSFER && entry === CREDIT) {
+      return {
+        transactionType: 'Entrada',
+        message: 'Transferência Recebida'
+      }
+    }
   }
 
   if (status === REFUNDED) {

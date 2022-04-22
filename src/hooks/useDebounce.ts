@@ -1,6 +1,12 @@
 import { useEffect, useCallback, useRef } from 'react'
 
-const useDebounce = (fn, deps, ms) => {
+interface UseDebouceProps {
+  fn: () => void;
+  dependencies: string;
+  ms: number;
+}
+
+const useDebounce = ({ fn, dependencies, ms }: UseDebouceProps) => {
   const callback = useRef()
   const timeout = useRef()
 
@@ -29,7 +35,7 @@ const useDebounce = (fn, deps, ms) => {
   useEffect(() => {
     setup()
     return clear
-  }, [deps])
+  }, [dependencies])
 
   return [clear, setup]
 }

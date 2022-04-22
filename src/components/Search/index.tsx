@@ -8,7 +8,7 @@ import { Wrapper, Input } from './styles'
 interface SearchProps {
   className?: string;
   placeholder: string;
-  fill?: boolean
+  fill?: boolean;
 }
 
 const Search = ({ className, placeholder, fill }: SearchProps) => {

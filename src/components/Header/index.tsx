@@ -6,7 +6,7 @@ import { Wrapper } from './styles'
 
 const Header = () => (
   <Wrapper>
-    <Title>Extrato</Title>
+    <Title as="h1">Extrato</Title>
   </Wrapper>
 )
 

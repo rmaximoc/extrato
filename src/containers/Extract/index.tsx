@@ -10,11 +10,6 @@ import { ExtractResults } from 'src/@types'
 
 import { Wrapper, ExtractHeader, DataParagraph, TransactionTypeParagraph } from './styles'
 
-const mapping = {
-  Saída: DEBIT,
-  Entrada: CREDIT
-}
-
 const Extract = () => {
   const [extracts, setExtracts] = useState<ExtractResults | null>(null)
   const [filteredItems, setFilteredItems] = useState(extracts)
@@ -22,13 +17,21 @@ const Extract = () => {
 
   const actionButtonsFilter = () => {
     const filterResult = extracts?.results.map(result => {
-      const newArray = result.items.filter(item => {
-        if (!item.scheduled && item.entry === mapping[filter]) {
-          return item.entry
-        }
+      let newArray: any = []
 
-        return item.scheduled
-      })
+      switch (filter) {
+        case 'Futuro':
+          newArray = result.items.filter(item => item.scheduled)
+          break
+        case 'Entrada':
+          newArray = result.items.filter(item => !item.scheduled && item.entry === CREDIT)
+          break
+        case 'Saída':
+          newArray = result.items.filter(item => !item.scheduled && item.entry === DEBIT)
+          break
+        default:
+          newArray = result
+      }
 
       if (newArray.length) {
         return {
@@ -71,16 +74,13 @@ const Extract = () => {
   }, [])
 
   useEffect(() => {
-    if (filter === 'Tudo') return setFilteredItems(prevState => prevState !== extracts)
+    if (filter === 'Tudo') return setFilteredItems(extracts)
 
-    const mergedFilteredItems = {
-      ...extracts,
+    const newResultNode = {
       results: actionButtonsFilter()
     }
 
-    console.log({ mergedFilteredItems })
-
-    return setFilteredItems(mergedFilteredItems)
+    setFilteredItems(newResultNode)
   }, [filter])
 
   useEffect(() => {

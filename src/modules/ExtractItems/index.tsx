@@ -44,7 +44,7 @@ const ExtractItems = ({ data }: ExtractItemsProps) => {
   return (
     <Wrapper>
       {data?.map((item: any) => (
-        <DataWrapper key={item.dateEvent}>
+        <DataWrapper key={`${item.dateEvent}${item.amount}`}>
           <Icon width={32} height={32} icon={transactionTypeIconTranslate(item)} />
           <Paragraph>{item.actor}</Paragraph>
           <TransactionTypeParagraph>

@@ -3,7 +3,7 @@ import React from 'react'
 import { StyledTitle } from './styles'
 
 interface TitleProps {
-  children?: React.ReactChild | React.ReactChild[];
+  children?: React.ReactNode | React.ReactNode[];
   as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
