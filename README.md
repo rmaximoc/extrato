@@ -11,10 +11,7 @@ Aplicação para mostrar e filtrar items de extrato, utilizando [React](https://
 ```
 
 ### Ambiente de desenvolvimento
-
 ```bash
+#Executa o projeto em ambiente de desenvolvimento
   `yarn dev`
 ```
-### Rodar testes
-
-> `yarn tests`
