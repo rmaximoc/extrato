@@ -3,7 +3,7 @@ import React from 'react'
 import { StyledMoney } from './styles'
 
 interface ColoredMoneyValuesProps {
-  children: React.ReactChild | React.ReactChild[];
+  children: React.ReactNode | React.ReactNode[];
   transactionEntry: string;
   transactionStatus: string;
   className?: string;

@@ -4,7 +4,7 @@ import { Paragraph } from '@components/Paragraph'
 import styled from 'styled-components'
 
 interface WrapperProps {
-  children: React.ReactChild | React.ReactChild[]
+  children: React.ReactNode | React.ReactNode[]
 }
 
 export const Wrapper = styled('div')<WrapperProps>`

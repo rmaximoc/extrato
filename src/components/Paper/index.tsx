@@ -3,7 +3,7 @@ import React from 'react'
 import { Wrapper } from './styles'
 
 interface PaperProps {
-  children: React.ReactChild | React.ReactChild[]
+  children: React.ReactNode | React.ReactNode[]
 }
 
 const Paper = ({ children }: PaperProps) => (

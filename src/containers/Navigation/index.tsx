@@ -6,7 +6,7 @@ import { FilterContext } from '@contexts/filterContext'
 
 import { Wrapper, ButtonWrapper } from './styles'
 
-const emptyObject = {
+const initialFilterValues = {
   Tudo: false,
   Entrada: false,
   Saída: false,
@@ -23,10 +23,10 @@ const Navigation = () => {
   const { setFilter } = useContext(FilterContext)
 
   const handleClick = (name: string) => {
-    setButtonOptions(emptyObject)
+    setButtonOptions(initialFilterValues)
 
     const selectedObject = {
-      ...emptyObject,
+      ...initialFilterValues,
       [name]: true
     }
 
