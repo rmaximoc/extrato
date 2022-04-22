@@ -13,17 +13,17 @@ interface SearchProps {
 
 const Search = ({ className, placeholder, fill }: SearchProps) => {
   const inputRef = useRef()
-  const { setSearchInputString } = useContext(FilterContext)
+  const context = useContext(FilterContext)
 
   return (
-    <Wrapper className={className} fill={fill} onClick={() => inputRef.current.focus()}>
+    <Wrapper className={className} fill={fill} onClick={() => inputRef?.current?.focus()}>
       <Icon icon="search" />
       <Input
         autoComplete="off"
         placeholder={placeholder}
         type="search"
         ref={inputRef}
-        onChange={event => setSearchInputString(event.target.value)}
+        onChange={event => context?.setSearchInputString(event.target.value)}
       />
     </Wrapper>
   )

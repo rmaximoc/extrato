@@ -20,7 +20,7 @@ const Navigation = () => {
     Saída: false,
     Futuro: false
   })
-  const { setFilter } = useContext(FilterContext)
+  const context = useContext(FilterContext)
 
   const handleClick = (name: string) => {
     setButtonOptions(initialFilterValues)
@@ -31,7 +31,7 @@ const Navigation = () => {
     }
 
     setButtonOptions(selectedObject)
-    setFilter(name)
+    context?.setFilter(name)
   }
 
   return (

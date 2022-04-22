@@ -13,13 +13,13 @@ import { Wrapper, ExtractHeader, DataParagraph, TransactionTypeParagraph } from 
 const Extract = () => {
   const [extracts, setExtracts] = useState<ExtractResults | null>(null)
   const [filteredItems, setFilteredItems] = useState(extracts)
-  const { filter, searchInputString } = useContext(FilterContext)
+  const context = useContext(FilterContext)
 
   const actionButtonsFilter = () => {
     const filterResult = extracts?.results.map(result => {
       let newArray: any = []
 
-      switch (filter) {
+      switch (context?.filter) {
         case 'Futuro':
           newArray = result.items.filter(item => item.scheduled)
           break
@@ -48,7 +48,7 @@ const Extract = () => {
 
   const searchInputFilter = () => {
     const searchResult = extracts?.results.map(result => {
-      const newArray = result.items.filter(item => item.actor.toLowerCase().includes(searchInputString.toLowerCase()))
+      const newArray = result.items.filter(item => item.actor.toLowerCase().includes(context?.searchInputString.toLowerCase()))
 
       if (newArray.length > 0) {
         return {
@@ -74,26 +74,26 @@ const Extract = () => {
   }, [])
 
   useEffect(() => {
-    if (filter === 'Tudo') return setFilteredItems(extracts)
+    if (context?.filter === 'Tudo') return setFilteredItems(extracts)
 
     const newResultNode = {
       results: actionButtonsFilter()
     }
 
     setFilteredItems(newResultNode)
-  }, [filter])
+  }, [context?.filter])
 
   useEffect(() => {
     const newResult = {
       results: searchInputFilter()
     }
 
-    if (!searchInputString) {
+    if (!context?.searchInputString) {
       return setFilteredItems(extracts)
     }
 
     setFilteredItems(newResult)
-  }, [searchInputString])
+  }, [context?.searchInputString])
 
   return (
     <Wrapper>
