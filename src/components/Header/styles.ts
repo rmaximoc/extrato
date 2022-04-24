@@ -6,4 +6,8 @@ export const Wrapper = styled.div`
   min-height: 80px;
   border-bottom: 1px solid ${({ theme }) => theme.pallete.grays.gray3};
   align-items: center;
+
+  ${({ theme }) => theme.mediaQuery.md} {
+    padding: 0 1%;
+  };
 `
