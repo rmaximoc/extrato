@@ -23,9 +23,6 @@ const theme = {
     sm: '@media (max-width: 768px)',
     md: '@media (max-width: 992px)',
     lg: '@media (max-width: 1200px)'
-  },
-  icons: {
-    search: './assets/icons/search.svg'
   }
 }
 

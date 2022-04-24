@@ -17,26 +17,17 @@ const Extract = () => {
 
   const actionButtonsFilter = () => {
     const filterResult = extracts?.results.map(result => {
-      let newArray: any = []
-
-      switch (context?.filter) {
-        case 'Futuro':
-          newArray = result.items.filter(item => item.scheduled)
-          break
-        case 'Entrada':
-          newArray = result.items.filter(item => !item.scheduled && item.entry === CREDIT)
-          break
-        case 'Saída':
-          newArray = result.items.filter(item => !item.scheduled && item.entry === DEBIT)
-          break
-        default:
-          newArray = result
+      const filterItems = {
+        Futuro: result.items.filter(item => item.scheduled),
+        Entrada: result.items.filter(item => !item.scheduled && item.entry === CREDIT),
+        Saída: result.items.filter(item => !item.scheduled && item.entry === DEBIT),
+        Todos: result
       }
 
-      if (newArray.length) {
+      if (filterItems[context?.filter].length) {
         return {
           ...result,
-          items: newArray
+          items: filterItems[context?.filter]
         }
       }
 

@@ -9,12 +9,7 @@ interface StyledMoneyProps {
   transactionStatus: string;
 }
 
-interface getStyleColorProps {
-  transactionEntry: string;
-  transactionStatus: string;
-}
-
-const getStyleColor = ({ transactionEntry, transactionStatus }: getStyleColorProps) => {
+const getStyleColor = ({ transactionEntry, transactionStatus }: StyledMoneyProps) => {
   if (transactionEntry === CREDIT && transactionStatus === REFUNDED) {
     return `${theme.pallete.grays.offBlack}`
   }
@@ -34,4 +29,8 @@ export const StyledMoney = styled(Paragraph)<StyledMoneyProps>`
   color: ${({ transactionEntry, transactionStatus }) =>
     getStyleColor({ transactionEntry, transactionStatus })};
   text-decoration: ${({ transactionStatus }) => transactionStatus === REFUNDED ? 'line-through' : 'unset'};
+
+  ${theme.mediaQuery.sm} {
+    font-size: 9px;
+  }
 `

@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react'
 
 interface ValueItemType {
-  filter: string;
+  filter: 'Tudo' | 'Entrada' | 'Saída' | 'Futuro' | string;
   setFilter: (_filter: string) => void;
   searchInputString: string;
   setSearchInputString: (_searchInputString: string) => void;

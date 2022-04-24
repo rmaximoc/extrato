@@ -16,4 +16,8 @@ export const ButtonWrapper = styled(ControlledSelectWrapper)`
   display: flex;
   align-items: center;
   gap: 46px;
+
+  ${({ theme }) => theme.mediaQuery.sm} {
+    justify-content: space-between;
+  };
 `
